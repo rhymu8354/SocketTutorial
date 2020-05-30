@@ -1,0 +1,7 @@
+set(This Server)
+add_executable(${This} src/main.cpp)
+set_target_properties(${This} PROPERTIES FOLDER Applications)
+target_link_libraries(${This} PUBLIC Sockets)
+if(UNIX AND NOT APPLE)
+    target_link_libraries(${This} PRIVATE -static-libstdc++)
+endif(UNIX AND NOT APPLE)
